@@ -1,1 +1,61 @@
+namespace QuizAppAPI.Models
+{
+    public class QuizItem
+    {
+        public string Question { get; set; }
+        public string A { get; set; }
+        public string B { get; set; }
+        public string C { get; set; }
+        public string D { get; set; }
+        public string Correct { get; set; }
+    }
+}
+using Microsoft.AspNetCore.Mvc;
+using QuizAppAPI.Models;
+
+namespace QuizAppAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class QuizController : ControllerBase
+    {
+        private static List<QuizItem> quizData = new List<QuizItem>
+        {
+            new QuizItem { Question = "What does FTP stand for?", A = "First Travel Pic", B = "Family Travel Photo", C = "Folder Transfer Protocol", D = "File Transfer Protocol", Correct = "D" },
+            new QuizItem { Question = "What does CSS stand for?", A = "Central Style Sheets", B = "Cascading Style Sheets", C = "Cascading Simple Sheets", D = "Cars SUVs Sailboats", Correct = "B" },
+            new QuizItem { Question = "What does HTML stand for?", A = "Hypertext Markup Language", B = "Hypertext Markdown Language", C = "Hyperloop Machine Language", D = "Helicopters Terminals Motorboats Lamborginis", Correct = "A" },
+            new QuizItem { Question = "Who is the father of computers?", A = "Charles Babbage", B = "Mcc Carthy", C = "Ramanujan", D = "None of the above", Correct = "A" }
+        };
+
+        [HttpGet]
+        public ActionResult<List<QuizItem>> GetQuizData()
+        {
+            return Ok(quizData);
+        }
+    }
+}
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAll", builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        });
+    });
+
+    services.AddControllers();
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseCors("AllowAll");
+
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+    });
+}
 
