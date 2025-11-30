@@ -1,151 +1,85 @@
-:root {
-    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
-      0 1px 2px rgba(0, 0, 0, 0.24);
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #f7f7f7;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-      "Open Sans", "Helvetica Neue", sans-serif;
-  }
-  
-  .container {
-    margin: 30px auto;
-    width: 350px;
-  }
-  
-  h1 {
-    letter-spacing: 1px;
-    margin: 0;
-  }
-  
-  h3 {
-    border-bottom: 1px solid #bbb;
-    padding-bottom: 10px;
-    margin: 40px 0 10px;
-  }
-  
-  h4 {
-    margin: 0;
-    text-transform: uppercase;
-  }
-  
-  .inc-exp-container {
-    background-color: #fff;
-    box-shadow: var(--box--shadow);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .inc-exp-container > div {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .inc-exp-container > div:first-of-type {
-    border-right: 1px solid #dedede;
-  }
-  
-  .money {
-    font-size: 2;
-    letter-spacing: 1px;
-    margin: 5px 0;
-  }
-  .money-plus {
-    color: #2ecc71;
-  }
-  
-  .money-minus {
-    color: #c0392b;
-  }
-  
-  label {
-    display: inline-block;
-    margin: 10px 0;
-  }
-  
-  input[type="text"],
-  input[type="number"] {
-    border: 1px solid #dedede;
-    border-radius: 2px;
-    display: block;
-    font-size: 16px;
-    padding: 10px;
-    width: 100%;
-  }
-  
-  .btn {
-    cursor: pointer;
-    background-color: #9c88ff;
-    box-shadow: var(--box-shadow);
-    color: #fff;
-    border: 0;
-    display: block;
-    font-size: 16px;
-    margin: 10px 0 30px;
-    padding: 10px;
-    width: 100%;
-  }
-  
-  .btn:focus,
-  .delete-btn:focus {
-    outline: 0;
-  }
-  
-  .list {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 40px;
-  }
-  
-  .list li {
-    background-color: #fff;
-    box-shadow: var(--box--shadow);
-    color: #333;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  
-  .list li.plus {
-    border-right: 5px solid #2ecc71;
-  }
-  
-  .list li.minus {
-    border-right: 5px solid #c0392b;
-  }
-  
-  .delete-btn {
-    cursor: pointer;
-    background-color: #e74c3c;
-    border: 0;
-    color: #fff;
-    font-size: 20px;
-    line-height: 20px;
-    padding: 2px 5px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-100%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .list li:hover .delete-btn {
-    opacity: 1;
-  }
+/* Glow — Gradient Modern UI (clean + compact) */
+:root{
+  --bg: linear-gradient(135deg,#6a11cb 0%,#2575fc 100%);
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#6a11cb;
+  --accent-2:#2575fc;
+  --shadow: 0 8px 30px rgba(37,117,252,0.12);
+  --glass: rgba(255,255,255,0.85);
+  --radius:14px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;align-items:center;justify-content:center;padding:28px;
+  color:#0b1220;
+}
+
+/* container */
+.container{
+  width:100%;max-width:1100px;background:linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.06));
+  border-radius:20px;padding:18px;backdrop-filter: blur(6px);box-shadow: var(--shadow);border:1px solid rgba(255,255,255,0.12);
+}
+
+/* header */
+.header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:700;font-size:28px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.tag{margin:2px 0 0 0;color:rgba(255,255,255,0.9);font-size:13px}
+.header h1{margin:0;color:white}
+
+/* buttons */
+.btn{border:0;padding:8px 12px;border-radius:10px;background:transparent;color:white;cursor:pointer;font-weight:600}
+.btn.filled{background:white;color:var(--accent);box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.14);color:white}
+.btn:hover{opacity:0.95}
+
+/* main layout */
+.main{display:grid;grid-template-columns:380px 1fr;gap:18px;padding:12px}
+.panel{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 24px rgba(11,17,32,0.06)}
+.panel-left{min-height:380px}
+.panel-right{min-height:380px}
+
+/* form */
+.form input, .form select{width:100%;padding:10px;border-radius:10px;border:1px solid #eef3ff;font-size:14px;margin-bottom:10px}
+.row{display:flex;gap:8px}
+.row input{flex:1}
+.row select{width:130px}
+.actions{display:flex;gap:8px;justify-content:flex-start}
+.actions .btn{min-width:98px}
+
+/* recent transactions */
+.tx-list{list-style:none;padding:0;margin:10px 0 0 0;max-height:220px;overflow:auto}
+.tx-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;border:1px solid #f2f6ff;margin-bottom:8px}
+.tx-left{display:flex;flex-direction:column}
+.tx-title{font-weight:600}
+.tx-meta{font-size:12px;color:var(--muted)}
+
+/* summary cards */
+.summary-cards{display:flex;gap:12px;margin-bottom:14px}
+.card{flex:1;padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 6px 18px rgba(11,17,32,0.04)}
+.label{font-size:13px;color:var(--muted)}
+.value{font-size:20px;font-weight:700;margin-top:8px}
+
+/* chart */
+.chart-card{padding:12px;border-radius:10px;background:white}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+canvas{max-width:100%;height:260px !important}
+
+/* footer */
+.footer{text-align:center;color:rgba(255,255,255,0.9);margin-top:12px;font-size:13px}
+
+/* small screens */
+@media (max-width:900px){
+  .main{grid-template-columns:1fr;max-width:680px}
+  .header{flex-direction:column;align-items:flex-start;gap:10px}
+  .brand h1{color:white}
+  .btn{font-size:14px}
+}
